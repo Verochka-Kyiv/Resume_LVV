@@ -1,0 +1,93 @@
+<div>
+    {{#with person}}
+    <h1>{{name}}</h1>
+    <div>
+        <p><b>Age:</b> {{age}} <b>Gender:</b> {{gender}} </p>
+    </div>
+    {{!-- Адреса --}}
+    <div>
+        <h4> Address: </h4>
+        {{#with address}}
+        <address> {{street}}, {{city}}, {{state}},
+            <br>
+            {{zip}}, <abbr>{{country}}</abbr>
+        </address>
+        {{/with}}
+    </div>
+    <hr>
+    {{!-- Освіта --}}
+    <div>
+        <h3> Education: </h3>
+        {{#each education }}
+        <p> <b> Degree: </b> {{degree}} </p>
+        <p> <b> Major: </b> {{major}} </p>
+        <p> <b> University: </b> {{university}} </p>
+        <p> <b> Graduation Year: </b> {{graduationYear}} </p>
+        {{/each}}
+    </div>
+    <hr>
+    {{!-- Досвід роботи --}}
+    <div>
+        <h3> Work experience: </h3>
+        {{#each workExperience }}
+        <p> <b> Company: </b> {{company}} ({{year_founded}})</p>
+        <p> <b> Title: </b> {{title}} </p>
+        <p> <b> Duration: </b> {{startDate}} - {{endDate}}</p>
+        <p> <b> Responsibilities: </b>
+            {{#each responsibilities}}
+            {{this}}.
+            {{/each}}
+            {{title}}
+        </p>
+        <p> <b> Industry: </b> {{industry}} </p>
+        <hr>
+        <p> <b> Employees: </b> </p>
+        {{#each employees}}
+        {{name}}, {{position}}, {{department}} <br>
+        <p> <b> Projects: </b> </p>
+        {{#each projects}}
+        <p>Name: {{name}}</p>
+        <p>Description: <q> {{description}}</q></p>
+        <p>Status: {{status}}</p>
+        <hr>
+        <p> <b>Teams: </b></p>
+
+        {{#each teams}}
+        <div>
+            Team Name: {{team_name}} <br>
+            {{team_leader.title}}: {{team_leader.name}}, email:
+            {{> link text = team_leader.email
+            href=team_leader.email blank=true noLine = true}}
+        </div>
+        {{#each team_members}}
+        <div>
+            Team Members: {{title}}: {{name}},
+            {{> link text = email
+            href=email blank=true noLine
+            = true}} <br> Skills: {{#each skills}} [{{this}}]
+            {{/each}}
+        </div>
+        <hr>
+        <p> <b>Projects: </b></p>
+        {{#each projects}}
+        <p> <ins>{{name}} </ins></p>
+        <i>Description:</i>
+        {{description}} <br>
+        <i>Technologies:</i>
+        {{technologies}} <br>
+        <i>Team members:</i>
+        <ol type="A">
+            {{#each team_members }}
+            <li>
+                {{title}}: {{name}}
+            </li> {{/each}}
+        </ol>
+        {{/each}}
+        {{/each}}
+        {{/each}}
+        {{/each}}
+        {{/each}}
+        {{/each}}
+    </div>
+    {{/with}}
+</div>
