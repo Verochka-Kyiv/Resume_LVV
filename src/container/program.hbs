@@ -1,0 +1,69 @@
+<div>
+    {{#with program}}
+    {{#with excursion}}
+    <h1>{{name}}</h1>
+    <h3>
+        <adress>{{location.city}}, {{location.country}}</adress>
+    </h3>
+    <p>{{date}}</p>
+    <p><b><u>Programs:</u></b></p>
+    <ol type="1">
+        {{#each program}}
+        <li>
+            Name: <i>{{name}}</i><br>
+            Type: <i>{{type}}</i><br>
+            Duration: <i>{{duration}}</i><br>
+            Details:
+            {{#with details}}
+            {{!-- Якщо є змінна museum --}}
+            {{#if museum}}
+            {{#with museum}}
+            <p>Museum: {{name}}</p> <br>
+            Location:
+            <address> {{location.address}}, {{location.city}}, {{location.country}} </address>
+            <p>Exhibitions:</p>
+            <ul>
+                {{#each exhibits}}
+                <li>
+                    <p>Name: {{name}},
+                        {{#if artist}}
+                        ({{artist}})
+                        {{/if}}
+                        <br> {{description}}<br> Audio guide:
+                        {{#if audio_guide}} YES {{else}} NO {{/if}}
+                    </p>
+                </li>
+                {{/each}}
+            </ul>
+            {{/with}}
+            {{/if}}
+            {{!-- -----------якщо є змінна venue -------------- --}}
+            {{#if venue}}
+            {{#with venue}}
+            <p>Venue name: {{name}}</p> <br>
+            Location:
+            <address> {{location.address}}, {{location.city}}, {{location.country}} </address>
+
+            {{/with}}
+            {{/if}}
+            {{!-- -----------якщо є змінна performers -------------- --}}
+            {{#if performers}}
+            <p>Performers:</p>
+            <ol type="a">
+                {{#each performers}}
+                <li>{{name}} ({{type}})</li>
+                {{/each}}
+            </ol>
+            {{/if}}
+            <p>GUIDE:</p>
+            {{#with guide}}
+            <p><b>Name:</b> {{name}}, <b>Language:</b> {{language}}, <b>Rating:</b> {{rating}}</p>
+            {{/with}}
+            <hr>
+            {{/with}}
+        </li>
+        {{/each}}
+    </ol>
+    {{/with}}
+    {{/with}}
+</div>
