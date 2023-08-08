@@ -1,0 +1,63 @@
+<div>
+    {{#with web}}
+    <h1>Languages</h1>
+    <ol type="1">
+        {{#each languages}}
+        <li>
+            <p><b>{{name}}</b> version: {{version}}</p>
+
+            <i>{{description}}</i>
+            {{!-- Якщо є об'єкт ELEMENTS --}}
+            {{#if elements}}
+            <ul>
+                {{#each elements}}
+                <li> <b>{{name}}</b>: <i>{{description}}</i> <br>
+                    Attributes:
+                    <ul>
+                        {{#each attributes}}
+                        <li>{{name}} - {{description}}</li>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+            {{!-- Якщо є об'єкт Properties --}}
+            {{#if properties}}
+            <ul>
+                {{#each properties}}
+                <li>
+                    <b> {{name}}</b>: <i>{{description}}</i> <br>
+                    Values:
+                    <ul>
+                        {{#each values}}
+                        <li>{{value}}: {{description}}</li>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+
+            {{!-- Якщо є об'єкт function --}}
+            {{#if functions}}
+            <ul>
+                {{#each functions}}
+                <li>
+                    <b> {{name}}</b>: <i>{{description}}</i> <br>
+                    Parameters:
+                    <ul>
+                        {{#each parameters}}
+                        <li>{{name}} ({{type}}): {{description}}</li>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+            <hr>
+        </li>
+        {{/each}}
+    </ol>
+    {{/with}}
+</div>
