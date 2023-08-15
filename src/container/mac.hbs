@@ -1,0 +1,156 @@
+<div>
+    <div class="p-3 mb-2 bg-info text-dark">
+        <p class="fst-italic">{{category}}</p>
+    </div>
+    <h1>{{name}} <span class="badge bg-secondary">{{price}}$</span></h1>
+    <div class="card">
+        <div class="card-body">
+            {{description}}
+        </div>
+    </div>
+    <hr>
+    <h3>Features:</h3>
+    {{#with features}}
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Processor</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#with processor}}
+            <li class="list-group-item">Brand:{{brand}}</li>
+            <li class="list-group-item">Model: {{model}}</li>
+            <li class="list-group-item">Speed: {{speed}}</li>
+            <li class="list-group-item">Cores: {{cores}}</li>
+            <li class="list-group-item">Cache: {{cache}}</li>
+            {{/with}} {{!--processor --}}
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Memory</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#with memory}}
+            <li class="list-group-item">Type: {{type}}</li>
+            <li class="list-group-item">Size: {{size}}</li>
+            <li class="list-group-item">Speed: {{speed}}</li>
+            {{/with}} {{!--memory --}}
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Storage</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#with storage}}
+            <li class="list-group-item">Type: {{type}}</li>
+            <li class="list-group-item">Size: {{size}}</li>
+            {{/with}} {{!--storage --}}
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Display</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#with display}}
+            <li class="list-group-item">Size: {{size}}</li>
+            <li class="list-group-item">Resolution: {{resolution}}</li>
+            <li class="list-group-item">Technology: {{technology}}</li>
+            <li class="list-group-item">Color_space: {{color_space}}</li>
+            <li class="list-group-item">Brightness: {{brightness}}</li>
+            <li class="list-group-item">Refresh rate: {{refresh_rate}}</li>
+            {{/with}} {{!--display --}}
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Graphics</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#with graphics}}
+            <li class="list-group-item">Brand: {{brand}}</li>
+            <li class="list-group-item">Model: {{model}}</li>
+            <li class="list-group-item">Memory: {{memory}}</li>
+            {{/with}} {{!--graphics --}}
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Ports</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#each ports}}
+            <li class="list-group-item">Type name:{{type}}</li>
+            <li class="list-group-item">Count: {{count}}</li>
+            {{#if features}} <li class="list-group-item">Features:
+                {{#each features}}
+                {{this}} ---
+                {{/each}} </li> {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Battery</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#with battery}}
+            <li class="list-group-item">Type: {{type}}</li>
+            <li class="list-group-item">Capacity: {{capacity}}</li>
+            <li class="list-group-item">Life: {{life}}</li>
+            {{/with}} {{!--battery --}}
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Weight</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{weight}}</li>
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Dimensions</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#with dimensions}}
+            <li class="list-group-item">Height: {{height}}</li>
+            <li class="list-group-item">Width: {{width}}</li>
+            <li class="list-group-item">Depth: {{depth}}</li>
+            {{/with}} {{!--dimensions --}}
+        </ul>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Operating system</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{operating_system}}</li>
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            <p class="text-decoration-underline">Accessories</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            {{#each accessories}}
+            <li class="list-group-item">Name: {{name}}, <br> Price: {{price}}$ </li>
+            {{/each}}
+        </ul>
+    </div>
+
+
+    {{/with}} {{!--features --}}
+</div>
