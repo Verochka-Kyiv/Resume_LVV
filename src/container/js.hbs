@@ -1,0 +1,93 @@
+<div>
+    <h1>{{name}} <span class="badge bg-secondary"> Founder: {{history.founder}} ({{history.year}})</span></h1>
+    <span class="badge text-bg-info"><i>{{description}} </i> </span>
+    <hr>
+    <h3> Types:</h3>
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            {{#each types}}
+            <li class="list-group-item">{{this}}</li>
+            {{/each}}
+        </ul>
+    </div>
+    <hr>
+    {{#with syntax}}
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Syntax
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            Variables: <br> {{#each variables}}
+            [{{this}}]
+            {{/each}}
+            <hr>
+            Function: <br>
+            {{#each functions}}
+            [{{this}}]
+            {{/each}}
+            <hr>
+            Conditionals: <br>
+            {{#each conditionals}}
+            [{{this}}]
+            {{/each}}
+            <hr>
+            Loops: <br>
+            {{#each loops}}
+            [{{this}}]
+            {{/each}}
+            <hr>
+            Classes: <br>
+            {{#each classes}}
+            [{{this}}]
+            {{/each}}
+        </div>
+    </div>
+    <hr>
+    {{/with}}
+    {{!-- __________________________________________ --}}
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Libraries
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <ol type="1">
+                {{#each libraries}}
+                <li> {{this}} </li>
+                {{/each}}
+            </ol>
+        </div>
+    </div>
+    <hr>
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            Tools
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    {{#each tools}}
+                    <li class="breadcrumb-item"><a href="#">{{this}}</a></li>
+                    {{/each}}
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <hr>
+    <h3>Community</h3> <br>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {{#each community}}
+            <li class="breadcrumb-item"><a href="#">{{name}}-({{type}})</a></li>
+            {{/each}}
+        </ol>
+    </nav>
+</div>
