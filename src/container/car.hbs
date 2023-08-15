@@ -1,0 +1,165 @@
+<div>
+    <h1>{{make}} <span class="badge bg-secondary">{{model}}, {{year}}, Color: {{color}}</span></h1>
+    <h3>Features: <span class="badge bg-secondary"></span></h3>
+    {{#with features}}
+    {{#with interior}}
+    <h4>interior: <span class="badge bg-secondary"></span></h4>
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            SEATS
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <ul>
+                {{#with seats}}
+                <li>Material:{{material}}</li>
+                <li>Color:{{color}}</li>
+
+                {{#if heated}}
+                <li>Heated: YES</li>
+                {{else}} <li>Heated: NO</li>
+                {{/if}}
+                {{#if ventilated}}
+                <li>Ventilated: YES</li>
+                {{else}} <li>Ventilated: NO</li>
+                {{/if}}
+                {{/with}}
+            </ul>
+        </div>
+    </div>
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            DASHBOARD
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <ul>
+                {{#with dashboard}}
+                <li>Material:{{material}}</li>
+                <li>Color:{{color}}</li>
+                <li>Display:
+                    <ul>
+                        <li>Type: {{display.type}}</li>
+                        <li>Size: {{display.size}}</li>
+                        <li>Resolution: {{display.resolution}}</li>
+                        {{#if display.touchscreen}}
+                        <li>Touchscreen: YES</li>
+                        {{else}} <li>Touchscreen: NO</li>
+                        {{/if}}
+                    </ul>
+                </li>
+                {{/with}}
+            </ul>
+        </div>
+    </div>
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            aria-expanded="false" aria-controls="collapseExample">
+            AUDIO
+        </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <ul>
+                {{#with audio}}
+                <li>system:{{system}}</li>
+                <li>speakers:{{speakers}}</li>
+                <li>subwoofer:{{subwoofer}}</li>
+                <li>bluetooth:{{bluetooth}}</li>
+                {{#if USB}}
+                <li>USB: YES</li>
+                {{else}} <li>USB: NO</li>
+                {{/if}}
+                {{/with}}
+            </ul>
+        </div>
+    </div>
+    {{/with}}
+
+    {{#with exterior}}
+    <h4>Exterior: <span class="badge bg-secondary"></span></h4>
+    <ul class="list-group">
+
+        <li class="list-group-item">Wheels: size: {{wheels.size}}, type: {{wheels.type}}, color: {{wheels.color}} </li>
+        <li class="list-group-item">Headlights: type: {{headlights.type}}, brightness: {{headlights.brightness}},
+            automatic:
+            {{#if headlights.automatic}} YES {{else}} NO {{/if}}
+
+        </li>
+        <li class="list-group-item">Sunroof: type: {{sunroof.type}}, size: {{sunroof.size}}, automatic:
+
+            {{#if sunroof.automatic}} YES {{else}} NO {{/if}}
+        </li>
+    </ul>
+    {{/with}}
+
+    {{#with safety}}
+    <h4>Safety: <span class="badge bg-secondary"></span></h4>
+    <ul class="list-group">
+
+        <li class="list-group-item">Airbags: front: {{airbags.front}}, side: {{airbags.side}}, knee: {{airbags.knee}},
+            rear: {{airbags.rear}} </li>
+        {{#with assistance}}
+        <li class="list-group-item">
+            <p class="text-decoration-underline">Assistance:.</p>
+            Blind_spot_monitoring:
+            {{#if blind_spot_monitoring}} YES {{else}} NO {{/if}} <br>
+            Rear_cross_traffic_alert:
+            {{#if rear_cross_traffic_alert}} YES {{else}} NO {{/if}} <br>
+            Lane_departure_warning:
+            {{#if lane_departure_warning}} YES {{else}} NO {{/if}} <br>
+            Adaptive_cruise_control:
+            {{#if adaptive_cruise_control}} YES {{else}} NO {{/if}} <br>
+            Collision_warning:
+            {{#if collision_warning}} YES {{else}} NO {{/if}} <br>
+        </li>
+        {{/with}}
+    </ul>
+    {{/with}}
+    {{/with}}
+
+    <h3>Engine: <span class="badge bg-secondary"></span></h3>
+    {{#with engine}}
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item">Type: {{type}} </li>
+        <li class="list-group-item">Displacement: {{displacement}} </li>
+        <li class="list-group-item">Horsepower: {{horsepower}} </li>
+        <li class="list-group-item">Torque: {{torque}} </li>
+        <li class="list-group-item">Transmission:
+            <ul>
+                <li> Type: {{transmission.type}}. Gears: {{transmission.gears}}</li>
+            </ul>
+        </li>
+    </ol>
+
+    {{/with}}
+
+    <h3>Fuel economy: <span class="badge bg-secondary"></span></h3>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item">City: {{fuel_economy.city}}</li>
+        <li class="list-group-item">Highway: {{fuel_economy.highway}}</li>
+        <li class="list-group-item">Combined: {{fuel_economy.combined}}</li>
+    </ol>
+
+    {{#with price}}
+    <h3>Price: <span class="badge bg-secondary"></span></h3>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">Base: {{base}}</li>
+        <li class="list-group-item list-group-item-warning">Destination: {{destination}} </li>
+        <li class="list-group-item list-group-item-success">Options:
+            <ul>
+                {{#with options}}
+                <li>Navigation: {{navigation}} </li>
+                <li>Moonroof: {{moonroof}} </li>
+                <li>Premium_paint: {{premium_paint}} </li>
+                {{/with}}
+            </ul>
+        </li>
+        <li class="list-group-item list-group-item-info"> <em><b> TOTAL: {{total}} </b></em> </li>
+    </ul>
+    {{/with}}
+</div>
