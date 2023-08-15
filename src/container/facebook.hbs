@@ -1,0 +1,63 @@
+<div>
+    <h1>{{name}} <span class="badge bg-secondary"> Users: </span></h1>
+    {{#each users}}
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <h2>{{name}} <span class="badge bg-secondary"> id: {{id}} </span></h2>
+                    age: {{age}},
+                    {{gender}}
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <p class="text-decoration-underline"><b>Friends:</b></p>
+                    {{#each friends}}
+
+                    <h4>{{name}} <span class="badge bg-secondary"> id: {{id}} </span></h4>
+                    {{gender}}, Age: {{age}}. <br>
+                    <p class="text-decoration-underline"><b>Mutural friends:</b></p>
+                    {{#each mutual_friends}}
+                    <h5>{{name}} <span class="badge bg-secondary"> id: {{id}} </span></h5>
+                    {{gender}}, Age: {{age}}. <br>
+                    {{/each}}
+
+                    {{#if groups}}
+                    <hr>
+                    {{!--Це для другого юзера, в якого Group сидять у Friends'aх--}}
+                    <p class="text-decoration-underline"><b>Groups:</b></p>
+                    {{#each groups}}
+                    {{!-- {{#with group}} --}}
+                    <h4>{{name}} <span class="badge bg-secondary"> id: {{id}} </span></h4>
+                    <i>{{description}}</i> <br>
+                    <p class="text-decoration-underline"><b>Members:</b></p>
+                    {{#each members}}
+                    <h5>{{name}} <span class="badge bg-secondary"> id: {{id}} </span></h5>
+                    {{gender}}, Age: {{age}}. <br>
+                    {{/each}}
+                    {{!-- {{/with}} --}}
+                    {{/each}}
+                    {{/if}}
+                    {{/each}} {{!--for FRIENDS --}}
+
+                    <hr>
+                    {{#if groups}}
+                    <p class="text-decoration-underline"><b>Groups:</b></p>
+                    {{#each groups}}
+                    <h4>{{name}} <span class="badge bg-secondary"> id: {{id}} </span></h4>
+                    <i>{{description}}</i> <br>
+                    <p class="text-decoration-underline"><b>Members:</b></p>
+                    {{#each members}}
+                    <h5>{{name}} <span class="badge bg-secondary"> id: {{id}} </span></h5>
+                    {{gender}}, Age: {{age}}. <br>
+                    {{/each}}
+                    {{/each}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}} {{!--for USERS --}}
+</div>
