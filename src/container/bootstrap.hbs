@@ -1,267 +1,127 @@
-{{!--
-Це код container файлу для summary сторінки,
-в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
---}}
-<main>
-    <div class="row gy-5">
-        <section class="col-12">
+{{!--Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"--}}
+<main class="m-3 p-5">
+    <h3>1</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="nav flex-column">
+                <div class="nav-item">
+                    <div class="card">
+                        <a href="#" class="nav-link">Home</a>
+                    </div>
+                </div>
+                <br>
+                <div class="nav-item">
+                    <div class="card">
+                        <a href="#" class="nav-link active">Bootstrap</a>
+                    </div>
+                </div>
+                <br>
+                <div class="nav-item">
+                    <div class="card">
+                        <a href="#" class="nav-link disabled">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>2</h3>
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="nav nav-tabs">
+                <div class="nav-item">
+                    <a href="#" class="nav-link active">Main</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Catalog</a>
+                </div>
+                <div class="nav-item">
+                    <a href="#" class="nav-link">Shoplist</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="nav flex-column">
+                <div class="nav-item">
+                    <div class="card">
+                        <a href="#" class="nav-link">Home</a>
+                    </div>
+                </div>
+                <br>
+                <div class="nav-item">
+                    <div class="card">
+                        <a href="#" class="nav-link active">Bootstrap</a>
+                    </div>
+                </div>
+                <br>
+                <div class="nav-item">
+                    <div class="card">
+                        <a href="#" class="nav-link disabled">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
             <div class="card">
-                <img class="card-img-top" src="https://picsum.photos/400/200" alt="Product photo">
-                <div class="card-body">
-                    <h5 class="card-title text-bg-primary"> Product #45345 </h5>
-                    <p class="text-bg-secondary">Кавомашина KRUPS Essential EA816570 </p>
-                    <a href="/summary" class="btn btn-primary">Open</a>
+                <div class="card-body pb-0">
+                    <div class="nav flex-column">
+                        <div class="nav-item">
+                            <div class="card mb-3">
+                                <a href="#" class="nav-link">Home</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-item">
+                            <div class="card mb-3">
+                                <a href="#" class="nav-link active">Bootstrap</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-item">
+                            <div class="card mb-3">
+                                <a href="#" class="nav-link ">FAQ</a>
+                            </div>
+                        </div>
+
+                        <div class="nav-item">
+                            <div class="card mb-3">
+                                <a href="#" class="nav-link disabled">QQQ</a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <div class="card text-bg-dark">
-        <div class="card-body">
-            <a href="#" class="btn btn-primary"> Button primary</a>
         </div>
-    </div>
-    <br> <br>
-
-
-    <br> <br>
-
-    <ul class="list-group">
-        <li class="list-group-item"> Item1
-            <ul class="list-group">
-                <li class="list-group-item">Item 1-1</li>
-                <li class="list-group-item">Item 1-2</li>
-                <li class="list-group-item">Item 1-3</li>
-            </ul>
-        </li>
-        <li class="list-group-item"> Item2 </li>
-        <li class="list-group-item"> Item3 </li>
-    </ul>
-    <br> <br>
-    <h5>Menu</h5>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <a href="#" class="btn btn-link">Home page</a>
-        </li>
-        <li class="list-group-item">
-            <a href="#" class="btn btn-link">Summary page</a>
-        </li>
-        <li class="list-group-item">
-            <a href="/skills" class="btn btn-link">Skills page</a>
-        </li>
-    </ul>
-    <br> <br>
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title"> Menu </h5>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#" class="btn btn-link">Home page</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#" class="btn btn-link">Summary page</a>
-                </li>
-                <li class="list-group-item">
-                    <a href="/skills" class="btn btn-link">Skills page</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-    <br> <br>
-    <div class="card">
-        <div class="card-header">
-            <div class="display-5"> Menu </div>
-        </div>
-
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item text-bg-dark">
-                <a href="#" class="btn btn-link">Home page</a>
-            </li>
-            <li class="list-group-item text-bg-warning">
-                <a href="#" class="btn btn-link">Summary page</a>
-            </li>
-            <li class="list-group-item text-bg-success">
-                <a href="/skills" class="btn btn-link">Skills page</a>
-            </li>
-        </ul>
-        <div class="card-footer text-bg-secondary">
-            <button class="btn btn-dark btn-sm">Update list</button>
-        </div>
-    </div>
-    <br> <br>
-
-
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr class="text-bg-success">
-                <th>
-                    #id
-                </th>
-                <th>
-                    name
-                </th>
-                <th>
-                    age
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>1</th>
-                <td>Mary</td>
-                <td>35</td>
-            </tr>
-
-            <tr>
-                <th>2</th>
-                <td>Anna</td>
-                <td>35</td>
-            </tr>
-
-            <tr>
-                <th>3</th>
-                <td>Dmitriy</td>
-                <td>35</td>
-            </tr>
-        </tbody>
-    </table>
-    <br> <br>
-
-    <div class="card text-bg-success">
-        <div class="card-header text-center">Header </div>
-        <div class="card-body text-center text-bg-info">
-            <h6 class="card-title">This is title</h6>
-            <p> This is content of our box </p>
-            <buttom class="btn btn-light">click me!</buttom>
-        </div>
-        <div class="card-footer text-center">Footer </div>
-    </div>
-    <br> <br>
-
-    <div class="row">
-        <div class="col-3">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a href="#">Home</a></li>
+                        <li class="breadcrumb-item"> <a href="#">PC and Notebook</a></li>
+                        <li class="breadcrumb-item"> Notebook MAC </li>
+                    </ol>
                 </div>
-                <div class="card-footer text-center">Footer </div>
+                <div class="col-12">
+                    <h6> Good things! <span class="badge text-bg-success text-uppercase rounded-pill"> top sales
+                        </span> </h6>
+                    <button class="btn-btn-primary rounded-pill mb-3">Click me!</button>
+                </div>
+                <div class="alert alert-primary">This is important info!</div>
             </div>
-        </div>
 
-        <div class="col-3">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-        <div class="col-3">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
+
+
+            <div class="alert alert-warning">
+                <h6 class="m-0"> Good things! <span class="badge text-bg-success text-uppercase rounded-pill"> top sales
+                    </span> </h6>
+                <button class="btn-btn-primary rounded-pil m-1">Click me!</button>
             </div>
         </div>
     </div>
-    <br>
-    <hr> <br>
-    <div class="row g-2">
-        <div class="col-4">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card text-bg-success">
-                <div class="card-header text-center">Header </div>
-                <div class="card-body text-center text-bg-info">
-                    <h6 class="card-title">This is title</h6>
-                    <p> This is content of our box </p>
-                    <buttom class="btn btn-light">click me!</buttom>
-                </div>
-                <div class="card-footer text-center">Footer </div>
-            </div>
-        </div>
-    </div>
-
 
 </main>
-
-
-
-{{!--
-Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
-Адже наш layout/default.hbs має вже структуру HTML
---}}
+{{!--Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML--}}
