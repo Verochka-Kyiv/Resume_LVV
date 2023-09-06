@@ -1,0 +1,33 @@
+<div class="row g-5 m-2 p-2">
+    {{#each this}}
+    <div class="col-4">
+        {{!--// for number and status --}}
+        <p class="fs-6">{{number}}</p>
+        <p class="fs-5 fw-semibold">{{status}}</p>
+    </div>
+    <div class=" col-2">
+        {{!--// for amount --}}
+        {{#with amount}}
+        <p class="fs-6">{{title}}</p>
+        <p class="fs-5 fw-semibold text-uppercase">{{value}}</p>
+        {{/with}}
+    </div>
+    <div class="col-4">
+        {{!--// for images --}}
+        {{#with images}}
+        {{#each this}}
+        <img class="rounded float-start m-1 p-0" width="60" height="50" src="{{this}}">
+        {{/each}}
+        {{/with}}
+    </div>
+    <div class="col-2">
+        {{!--// for button --}}
+        {{#with button}}
+        <a type="button" class="btn btn-primary" href="{{link}}">{{text}}</a>
+        {{/with}}
+    </div>
+    {{#if @last}} <br> <br> {{else}}
+    <hr class="ms-2 me-5 pe-5"> {{/if}}
+    {{/each}}
+
+</div>
