@@ -14,7 +14,7 @@
     <hr class="my-5">
     <h1>{{header}}</h1>
     {{#with purchase}}
-    <div class="card text-center pb-4">
+    <div class="card pb-4">
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 {{#each tabs}}
@@ -26,15 +26,18 @@
         </div>
         <div class="card-body text-start p-2 m-2">
             {{#with actionBlock}}
-            <label>{{placeholder}}</label>
-            <input name="input1" type="search" class="form control">
-            {{#with buttons}}
-            {{#each this}}
-            <a href="{{link}}" {{#if isSuccess}} class="btn btn-success m-1" {{else}} {{#if isOutline}}
-                class="btn btn-outline-success m-1" {{else}} class="btn btn-outline-danger m-1" {{/if}}
-                {{/if}}>{{text}}</a>
-            {{/each}}
-            {{/with}}
+            <div class="row">
+                <div class="col-3">
+                    <input class="form-control" placeholder="{{input.placeholder}}" type="text">
+                </div>
+                <div class="col-6">
+                    {{#each buttons}}
+                    <a href="{{link}}" {{#if isSuccess}} class="btn btn-success m-1" {{else}} {{#if isOutline}}
+                        class="btn btn-outline-success m-1" {{else}} class="btn btn-outline-danger m-1" {{/if}}
+                        {{/if}}>{{text}}</a>
+                    {{/each}}
+                </div>
+            </div>
             {{/with}}
             <hr>
 
