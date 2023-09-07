@@ -1,0 +1,183 @@
+<main class="p-5">
+    <div class="card">
+        {{#with navigation}}
+        <div class="nav">
+            {{#each links}}
+            <div class="nav-item">
+                <a href="{{href}}" class="nav-link active">{{text}}</a>
+            </div>
+            {{/each}}
+            <a href="#" class="nav-link disabled">Disabled</a>
+        </div>
+        {{/with}} {{!--// for navigation --}}
+    </div>
+    <hr class="my-5">
+    <h1>{{header}}</h1>
+    {{#with purchase}}
+    <div class="card text-center pb-4">
+        <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+                {{#each tabs}}
+                <li class="nav-item">
+                    <a class="nav-link {{#if @first}} active" {{/if}} aria-current="true" href="#">{{this}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="card-body text-start p-2 m-2">
+            {{#with actionBlock}}
+            <label>{{placeholder}}</label>
+            <input name="input1" type="search" class="form control">
+            {{#with buttons}}
+            {{#each this}}
+            <a href="{{link}}" {{#if isSuccess}} class="btn btn-success m-1" {{else}} {{#if isOutline}}
+                class="btn btn-outline-success m-1" {{else}} class="btn btn-outline-danger m-1" {{/if}}
+                {{/if}}>{{text}}</a>
+            {{/each}}
+            {{/with}}
+            {{/with}}
+            <hr>
+
+            {{#with itemList}}
+            {{>purchaseItem}}
+            {{/with}}
+        </div>
+        {{/with}} {{!--// for purchase --}}
+    </div>
+
+
+    {{#with userInfo}}
+    <h2 class="mt-5">{{title}}</h2>
+    {{#with profileData}}
+    <div class="card">
+        <div class="card-body">
+            <h3>{{title}}</h3>
+            <div class="card">
+                {{#with fullName}}
+                <div class="row g-5">
+                    <div class="col-4">
+                        {{#with surname}}
+                        <p class="fs-6 m-2">{{title}}</p>
+                        <p class="fs-5 fw-medium m-2">{{value}}</p>
+                        {{/with}}
+                    </div>
+                    <div class="col-4">
+                        {{#with name}}
+                        <p class="fs-6 m-2">{{title}}</p>
+                        <p class="fs-5 fw-medium m-2">{{value}}</p>
+                        {{/with}}
+                    </div>
+                    <div class="col-4">
+                        {{#with middleName}}
+                        <p class="fs-6 m-2">{{title}}</p>
+                        <p class="fs-5 fw-medium m-2">{{value}}</p>
+                        {{/with}}
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+            <div class="card">
+                {{#with otherInfo}}
+                <div class="row g-5">
+                    <div class="col-4">
+                        {{#with birthday}}
+                        <p class="fs-6 m-2">{{title}}</p>
+                        <p class="fs-5 fw-medium m-2">{{value}}</p>
+                        {{/with}}
+                    </div>
+                    <div class="col-4">
+                        {{#with sex}}
+                        <p class="fs-6 m-2">{{title}}</p>
+                        <p class="fs-5 fw-medium m-2">{{value}}</p>
+                        {{/with}}
+                    </div>
+                    <div class="col-4">
+                        {{#with language}}
+                        <p class="fs-6 m-2">{{title}}</p>
+                        <p class="fs-5 fw-medium m-2">{{value}}</p>
+                        {{/with}}
+                    </div>
+                </div>
+                {{/with}}
+            </div>
+        </div>
+    </div>
+    {{/with}} {{!--// for profiledata --}}
+
+    {{#with buttons}}
+    <div class="card my-3">
+        <div class="row g-5">
+            {{#each this}}
+            <div class="col-4">
+                <a type="button" {{#if isPrimary}} class="btn btn-primary m-1" {{else}} {{#if isSecondary}}
+                    class="btn btn-outline-secondary m-1" {{else}} class="btn btn-outline-danger m-1" {{/if}} {{/if}}
+                    href="{{link}}">{{text}}</a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/with}} {{!--// for buttons--}}
+
+    {{#with recipients}}
+    <div class="card">
+        <h3>{{title}}</h3>
+        {{#with users}}
+        <div class="row g-5">
+            {{#each this}}
+            <div class="col-4">
+                <div class="card m-2">
+                    <p class="fw-medium m-1">{{name}}</p>
+                    <p class="m-1">{{phone}}</p>
+                    {{#with button}}
+                    <a type="button" class="btn btn-primary m-1" href="{{link}}">{{text}}</a>
+                    {{/with}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/with}}
+    </div>
+    {{/with}} {{!--// for recipients--}}
+    {{#with contacts}}
+    <div class="card m-2 p-1 mb-5">
+        <div class="card-title">
+            <h3 class="m-1">{{title}}</h3>
+        </div>
+        <div class="card-body">
+            {{#with contactData}}
+            <div class="row g-5">
+                {{#each this}}
+                <div class="col-4">
+                    <p>{{title}}</p>
+                    <p>{{value}}</p>
+                    {{#with button}}
+                    <a {{#if isPrimary}} class="btn btn-primary" {{else}} {{#if isSecondary}}
+                        class="btn btn-outline-secondary" {{else}} class="btn btn-outline-danger" {{/if}} {{/if}}
+                        href="{{link}}">{{text}}</a>
+                    {{/with}}
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </div>
+    </div>
+    {{/with}} {{!--// for contacts--}}
+    {{/with}} {{!--// for userInfo--}}
+    <hr class="m-0 p-0">
+    <div class="row g-5 my-0 py-0">
+        {{#each footer}}
+        <div class="nav col-2">
+            <div>
+                {{#each this}}
+                <div>
+                    <a class="nav-link {{#if @last}} disabled {{/if}} fs-6" href="{{this.link}}">{{this.text}}</a>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</main>
+{{!--Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML--}}
