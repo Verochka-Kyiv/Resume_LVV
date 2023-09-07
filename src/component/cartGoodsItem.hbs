@@ -1,0 +1,35 @@
+<div>
+    <div class="card m-2 pt-1 pb-1 ps-2 pe-2">
+        <div class="row g-5">
+            <div class="col-2">
+                {{!--// for foto --}}
+                <img src="{{image}}" class="rounded float-start" alt="{{name}}">
+            </div>
+            <div class="col-4">
+                {{!--// for describe --}}
+                <h4 class="fw-bold fs-5">{{name}}</h4>
+                <sub>{{description}}</sub>
+            </div>
+            <div class="col-2">
+                {{!--// for price --}}
+                {{#with price}}
+                <p>{{title}}:</p>
+                <p class="fw-bold fs-6">{{value}}</p>
+                {{/with}}
+            </div>
+            <div class="col-2">
+                {{!--// for quantity --}}
+                <p>{{amount}}</p>
+            </div>
+            <div class="col-2">
+                {{!--// for buttons --}}
+                {{#with buttons}}
+                {{#each this}}
+                <button type="button" {{#if isPrimary}} class="btn btn-primary btn-sm p-2 m-1" {{else}}
+                    class="btn btn-outline-danger btn-sm m-1 p-1" {{/if}}>{{text}}</button>
+                {{/each}}
+                {{/with}}
+            </div>
+        </div>
+    </div>
+</div>
