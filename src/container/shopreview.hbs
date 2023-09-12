@@ -1,84 +1,118 @@
 {{!--Це код container файлу для summary сторінки,
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"--}}
 <main class="p-5">
-
-    {{#with navigation}}
-    <div class="nav">
-        {{#each links}}
-        <div class="nav-item">
-            <a href="{{href}}" class="nav-link active">{{text}}</a>
+    <div class="card">
+        {{#with navigation}}
+        <div class="nav">
+            {{#each links}}
+            <div class="nav-item">
+                <a href="{{href}}" class="nav-link active">{{text}}</a>
+            </div>
+            {{/each}}
+            <a href="#" class="nav-link disabled">Disabled</a>
         </div>
-        {{/each}}
-        <a href="#" class="nav-link disabled">Disabled</a>
+        {{/with}} {{!--// for navigation --}}
     </div>
-    {{/with}} {{!--// for navigation --}}
-    <hr class="sm">
-    {{#with header}}
-    <h1 class="mt-5">{{title}}</h1>
-    {{#with button}}
-    <a href="{{link}}" type="button" class="btn btn-outline-secondary mt-2 mb-4">{{text}}</a>
-    {{/with}}
-    {{/with}} {{!--// for header --}}
-    <hr>
-    {{#with goodsBlock}}
-    {{#each this}}
-    {{>cartGoodsItem}}
-    {{/each}}
-    {{/with}}
-    <hr>
-    {{#with total}}
-    <h3 class="fw-semibold mt-5">{{title}}</h3>
-    <p class="fw-semibold fs-2">{{amount}}</p>
-    <p>{{delivery}}</p>
-    {{#with buttons}}
-    {{#each this}}
-    <a type="button" {{#if isSuccess}} class="btn btn-success mb-3" {{else}} class="btn btn-outline-success mb-4"
-        {{/if}} href="{{link}}">{{text}}</a>
     <br>
-    {{/each}}
-    {{/with}}
-    {{/with}} {{!--// for total --}}
-    <hr class="mb-5">
-    {{#with goodsOtherBlock}}
-    <h3 class="text-center m-4">{{title}}</h3>
-
     <div class="row g-5">
-        {{#with cards}}
-        {{#each this}}
-        <div class="col-4">
-            <div class="card">
-                <img src="{{image}}" class="card-img-top" alt="{{title}}">
+        <div class="col-8">
+            {{#with formBlock}}
+            <h1>{{header}}</h1>
+            {{#with rating}}
+            <p>{{title}}: {{value}}</p>
+            {{/with}}
+            <br>
+            {{#with actionBlock}}
+            <div class="card mt-5">
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        {{#with tabs}}
+                        {{#each this}}
+                        <li class="nav-item">
+                            <a class="nav-link {{#if isActive}} active{{/if}} px-5" href="#">{{text}}</a>
+                        </li>
+                        {{/each}}
+                        {{/with}}
+                    </ul>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{title}}
-                        {{#if isHot}}<span class="badge text-bg-warning text-uppercase m-0 p-1">Hot!</span>
-                        {{else}} {{#if idNew}} <span class="badge text-bg-primary m-0 p-1">Нове</span> {{/if}} {{/if}}
-                    </h5>
-                    <p>{{description}}</p>
+                    <hr>
+                    <div class="card">
+                        {{#with report}}
+                        <p class="p-2 mb-0">{{title}}</p>
+                        <div class="row g-5 p-2">
+                            <div class="col-4">
+                                <a type="button" class="btn btn-secondary" href="{{button.link}}">{{button.text}}</a>
+                                {{/with}}
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
                 </div>
             </div>
+            {{/with}} {{!--// for actionBlock --}}
+            {{#with feedbackBlock}}
+            <h3 class="mt-5">{{title}}</h3>
+            <div class="row">
+                {{#with buttons}}
+                {{#each this}}
+                <div class="col-4">
+                    <a type="button"
+                        class="btn {{#if isWarning}} btn-warning {{else}} {{#if isSuccess}} btn-success {{else}} btn-danger {{/if}} {{/if}} p-2 m-1 my-4"
+                        href="{{link}}">{{text}}</a>
+                </div>
+                {{/each}}
+                {{/with}}
+            </div>
+            {{/with}} {{!--// for feedbackBlock --}}
         </div>
-        {{/each}}
-        {{/with}}
+
+        <div class="col-4">
+
+            {{#with goodsInfo}}
+            <div class="card m-1 p-2">
+                <img class="card-img-top" src="{{photo}}" alt="{{name}}">
+                <div class="card-body">
+                    <p class="fw-semibold mb-0 pb-0">{{name}}</p>
+                </div>
+            </div>
+            <div class="card m-1 p-2">
+                <p class="fw-semibold mb-0">{{price}}</p>
+                {{#if inMarket}} <p class="m-0 p-0">Є в наявності</p> {{/if}}
+                {{#with buttons}}
+                {{#each this}}
+                <a type="button" class="btn {{#if isPrimary}} btn-primary {{else}} btn-secondary {{/if}} p-2 m-1"
+                    href="{{link}}">{{text}}</a>
+                {{/each}}
+                {{/with}}
+            </div>
+            <div class="card  m-1 p-2">
+                {{#with seller}}
+                <p class="m-1">{{title}}: <span class="fw-semibold">{{value}}</span></p>
+                {{/with}}
+            </div>
+            {{/with}} {{!--// for goodsInfo --}}
+
+        </div>
+        {{/with}} {{!--// for FORMBLOCK --}}
     </div>
-    {{/with}} {{!--// for goodsOtherBlock --}}
-    <hr class="mb-5">
-    {{#with subscribe}}
-    <div class="card p-3 mb-5 bg-dark text-white">
-        <h2>{{header}}</h2>
+    <hr>
+    {{#with reviewList}}
+    {{#each this}}
+    {{>reviewItem}}
+    {{/each}}
+    {{/with}} {{!--// for reviewList --}}
+    {{#with service}}
+    <div class="card p-3 mb-2 bg-success text-white text-center">
+        <h2>{{title}}</h2>
         <p>{{description}}</p>
         {{#with buttons}}
         {{#each this}}
-        <div class="row g-5">
-            <div class="col-4">
-                <a class="btn btn-primary m-2" href="{{link}}" role="button">{{text}}</a>
-            </div>
-        </div>
+        <a class="btn btn-primary w-50 m-1 mx-auto" href="{{link}}">{{text}}</a>
         {{/each}}
         {{/with}}
     </div>
-    {{/with}} {{!--// for subscribe --}}
-    <hr>
-
+    {{/with}}
     <div class="row g-5">
         {{#each footer}}
         <div class="nav col-2">
