@@ -2,81 +2,133 @@
 в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"--}}
 <main class="p-5">
 
-    {{#with navigation}}
-    <div class="nav">
-        {{#each links}}
-        <div class="nav-item">
-            <a href="{{href}}" class="nav-link active">{{text}}</a>
+    <div class="card">
+        {{#with navigation}}
+        <div class="nav">
+            {{#each links}}
+            <div class="nav-item">
+                <a href="{{href}}" class="nav-link active">{{text}}</a>
+            </div>
+            {{/each}}
+            <a href="#" class="nav-link disabled">Disabled</a>
         </div>
-        {{/each}}
-        <a href="#" class="nav-link disabled">Disabled</a>
+        {{/with}} {{!--// for navigation --}}
     </div>
-    {{/with}} {{!--// for navigation --}}
-    <hr class="sm">
-    {{#with header}}
-    <h1 class="mt-5">{{title}}</h1>
-    {{#with button}}
-    <a href="{{link}}" type="button" class="btn btn-outline-secondary mt-2 mb-4">{{text}}</a>
-    {{/with}}
-    {{/with}} {{!--// for header --}}
     <hr>
-    {{#with goodsBlock}}
-    {{#each this}}
-    {{>cartGoodsItem}}
-    {{/each}}
+    {{#with breadcrumb}}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {{#each this}}
+            <li class="breadcrumb-item">
+                <a href="{{url}}">{{name}}</a>
+            </li>
+            {{#if @last}} <li class="breadcrumb-item active" aria-current="page">
+                {{name}}
+            </li> {{/if}}
+            {{/each}}
+        </ol>
+    </nav>
     {{/with}}
-    <hr>
-    {{#with total}}
-    <h3 class="fw-semibold mt-5">{{title}}</h3>
-    <p class="fw-semibold fs-2">{{amount}}</p>
-    <p>{{delivery}}</p>
-    {{#with buttons}}
-    {{#each this}}
-    <a type="button" {{#if isSuccess}} class="btn btn-success mb-3" {{else}} class="btn btn-outline-success mb-4"
-        {{/if}} href="{{link}}">{{text}}</a>
-    <br>
-    {{/each}}
-    {{/with}}
-    {{/with}} {{!--// for total --}}
-    <hr class="mb-5">
-    {{#with goodsOtherBlock}}
-    <h3 class="text-center m-4">{{title}}</h3>
+    <h1>{{header}}</h1>
 
     <div class="row g-5">
-        {{#with cards}}
+        {{#with sortBlock}}
         {{#each this}}
-        <div class="col-4">
-            <div class="card">
-                <img src="{{image}}" class="card-img-top" alt="{{title}}">
-                <div class="card-body">
-                    <h5 class="card-title">{{title}}
-                        {{#if isHot}}<span class="badge text-bg-warning text-uppercase m-0 p-1">Hot!</span>
-                        {{else}} {{#if idNew}} <span class="badge text-bg-primary m-0 p-1">Нове</span> {{/if}} {{/if}}
-                    </h5>
-                    <p>{{description}}</p>
-                </div>
-            </div>
+        <div class="col-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>{{placeholder}}</option>
+                {{#with options}}
+                {{#each this}}
+                <option value="{{value}}">{{text}}</option>
+                {{/each}}
+                {{/with}}
+            </select>
         </div>
         {{/each}}
-        {{/with}}
+        {{/with}} {{!--// for sortBlock --}}
     </div>
-    {{/with}} {{!--// for goodsOtherBlock --}}
-    <hr class="mb-5">
-    {{#with subscribe}}
-    <div class="card p-3 mb-5 bg-dark text-white">
-        <h2>{{header}}</h2>
+
+    <div class="row mt-2 g-5">
+        <div class="col-4">
+            {{#with filterBlock}}
+            <div class="card p-2">
+                {{#with sellers}}
+                <p>{{title}}</p>
+                {{#each list}}
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{value}}
+                    </label>
+                </div>
+                {{/each}}
+                {{/with}}
+                <hr>
+                {{#with brands}}
+                <p>{{title}}</p>
+                <input class="form-control mb-2" placeholder="{{input.placeholder}}" type="text">
+                {{#each options}}
+                <div class="form-check">
+                    <input class="form-check-input mb-2" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{value}}
+                    </label>
+                </div>
+                {{/each}}
+                {{/with}} {{!--// for brands --}}
+                <hr>
+                {{#with price}}
+                <p>{{title}}</p>
+                {{#with range}}
+                <input class="form-control mb-2" placeholder="{{from}}" type="text">
+                <input class="form-control mb-2" placeholder="{{to}}" type="text">
+                {{/with}}
+                <a type="button" class="btn btn-outline-secondary w-10" href="{{button.link}}">{{button.text}}</a>
+                {{/with}} {{!--// for price --}}
+                <hr>
+                {{#each filterList}}
+                <p>{{title}}</p>
+                {{#with options}}
+                {{#each this}}
+                <div class="form-check">
+                    <input class="form-check-input mb-1" type="checkbox">
+                    <label class="form-check-label">{{value}}</label>
+                </div>
+                {{/each}}
+                {{/with}}
+                <hr>
+                {{/each}} {{!--// for filterList --}}
+                {{/with}} {{!--// for filterBlock --}}
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="row g-5">
+                {{#with goodsList}}
+                {{#each this}}
+                {{>catalogItem}}
+                {{/each}}
+                {{/with}}
+            </div>
+        </div>
+    </div>
+
+    </div>
+    {{#with service}}
+    <div class="card p-3 mb-2 bg-success text-white text-center">
+        <h2>{{title}}</h2>
         <p>{{description}}</p>
         {{#with buttons}}
         {{#each this}}
         <div class="row g-5">
-            <div class="col-4">
+            <div class="col-12">
                 <a class="btn btn-primary m-2" href="{{link}}" role="button">{{text}}</a>
             </div>
         </div>
         {{/each}}
         {{/with}}
     </div>
-    {{/with}} {{!--// for subscribe --}}
+    {{/with}}
+
     <hr>
 
     <div class="row g-5">

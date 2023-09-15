@@ -1,3 +1,38 @@
-<div>
-
+<div class="col-5">
+    <div class="card m-2 p-1">
+        <img class=" card-img-top rounded float-start" src="{{img}}" alt="SomeGoods">
+        <div class="row m-2 ms-0 p-1 ps-0">
+            <div class="col-3">
+                {{#if isHot}} <span class="badge rounded-pill text-bg-warning">HOT!</span>{{/if}}
+            </div>
+            <div class="col-3">
+                {{#if isNew}} <span class="badge rounded-pill text-bg-primary">New</span> {{/if}}
+            </div>
+            <div class="col-3">
+                {{#if isFast}} <span class="badge rounded-pill text-bg-danger">Fast!</span> {{/if}}
+            </div>
+            <div class="col-3">
+                {{#if isFree}} <span class="badge rounded-pill text-bg-success">FREE</span>{{/if}}
+            </div>
+        </div>
+        <p class="fs-5 fw-medium">{{name}}</p>
+        {{#with review}}
+        <p>{{amount}} {{text}}</p>
+        {{/with}}
+        <p class="fs-5 fw-medium">{{price}}</p>
+        <p>{{delivery}}</p>
+        {{#with buttons}}
+        {{#each this}}
+        <a type="button" {{#if isPrimary}} class="btn btn-primary m-2" {{else}} class="btn btn-secondary m-2" {{/if}}
+            href="{{link}}">{{text}}</a>
+        {{/each}}
+        {{/with}}
+        {{#with characteristics}}
+        <ul>
+            {{#each this}}
+            <li>{{title}}: {{value}}</li>
+            {{/each}}
+        </ul>
+        {{/with}}
+    </div>
 </div>
