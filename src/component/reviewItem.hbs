@@ -1,3 +1,44 @@
-<div>
+<div class="card m-2 p-2">
+    <div class="card m-2 p-2">
+        {{#with title}}
+        <p class="fw-semibold">{{userName}}</p>
+        <p>{{caption}}</p>
+        <p>{{date}}</p>
+        {{/with}}
+        <hr class="m-0 p-0">
+        {{#with reviewBody}}
+        {{#with seller}}
+        <p>{{title}}: {{value}}</p>
+        {{/with}}
+        {{#with rating}}
+        <p>{{title}}: {{value}}</p>
+        {{/with}}
+        <p>{{text}}</p>
+        {{#with advantages}}
+        <p class="fw-semibold">{{title}}</p>
+        <p>{{text}}</p>
+        {{/with}}
+        {{#with disadvantages}}
+        <p class="fw-semibold">{{title}}</p>
+        <p>{{text}}</p>
+        {{/with}}
+        <div class="row g-3">
+            {{#each images}}
+            <div class="col-3 m-1 p-2">
+                <img src="{{this}}">
+            </div>
+            {{/each}}
+        </div>
+        {{#with coments}}
+        {{#each this}}
+        <div class="card ms-5 mb-2 p-2">
+            <p class="fs-5 fw-semibold">{{userName}}</p>
+            <p>{{date}}</p>
+            <p>{{text}}</p>
+        </div>
+        {{/each}}
+        {{/with}}
 
+        {{/with}} {{!--// for reviewBody --}}
+    </div>
 </div>
