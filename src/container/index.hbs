@@ -5,11 +5,30 @@
 
 <div class="p-5">
 
+    <p class="fs-5 fw-semibold mt-0 ">List of pages | Список сторінок:</p>
+
+    <p>{{en}}</p>
+    <p>{{ua}}</p>
+
+    {{#with mainButtons}}
+
+    <div class="row g-5">
+        {{#each this}}
+        <div class="col-3">
+            <a type="button" class="btn btn-primary text-center" style="width: 150px;" href="{{href}}">{{name}}</a>
+        </div>
+        {{/each}}
+    </div>
+    {{/with}}
+
+
+
 </div>
+
+
 
 {{!--
 Цей код містить лише те, що буде виводитись в
 
 <body>
-    Адже наш layout/default.hbs має вже структуру HTML
     --}}
