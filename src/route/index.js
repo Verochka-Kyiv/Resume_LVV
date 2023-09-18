@@ -5,22 +5,22 @@ const router = express.Router()
 // ================================================================
 var header = {
   name: {
-    firstname: 'Dmytro',
-    lastname: 'Ivanov',
+    firstname: 'Vira',
+    lastname: 'Lysenko',
   },
   position: 'Junior Fullstack JS Developer',
-  salary: '­600$ в місяць',
+  salary: '­600$ per month',
   address: 'Ukraine, Kyiv',
 }
 var footer = {
   social: {
     email: {
-      text: 'dmytro@mail.com',
-      href: 'mailto:dmytro@mail.com',
+      text: 'viralysenko03@gmail.com',
+      href: 'mailto:viralysenko03@gmail.com',
     },
     phone: {
-      text: '+380670000123',
-      href: 'tel:+380670000123',
+      text: '+380503526628',
+      href: 'tel:+380503526628',
     },
     linkedin: {
       text: 'LinkedIn',
@@ -62,7 +62,107 @@ router.get('/', function (req, res) {
   // res.render генерує нам HTML сторінку
 
   //            ↙ cюди вводимо назву файлу з сontainer
-  res.render('index', {})
+  res.render('index', {
+    layout: 'index',
+    page: {
+      title: 'Main',
+    },
+    en: `This project involved creating web pages using HTML to markup content, CSS to style them, and Bootstrap to ease
+        development and ensure optimization. This experience is valuable for the next steps in web development and I
+        will
+        continue to learn and develop in this area, improving my programming skills.`,
+
+    ua: `Проект включав в себе створення веб-сторінок з використанням HTML для розмітки контенту, CSS для
+        надання їм стилів та Bootstrap для полегшення розробки та забезпечення оптимальності. Цей досвід є корисним
+        для подальших кроків у веб-розробці, і я продовжу навчання та розвиток в цій області, вдосконалюючи
+        свої навички програмування.`,
+    mainButtons: [
+      {
+        name: 'Summary-1',
+        href: '/summary',
+      },
+      {
+        name: 'Skills-2',
+        href: '/skills',
+      },
+      {
+        name: 'Education-3',
+        href: '/education',
+      },
+      {
+        name: 'Work-4',
+        href: '/work',
+      },
+      {
+        name: 'Person-5',
+        href: '/person',
+      },
+      {
+        name: 'Bio-6',
+        href: '/bio',
+      },
+      {
+        name: 'Program-7',
+        href: '/program',
+      },
+      {
+        name: 'Web-8',
+        href: '/web',
+      },
+      {
+        name: 'JS-9',
+        href: '/js',
+      },
+      {
+        name: 'Car-10',
+        href: '/car',
+      },
+      {
+        name: 'MAC-11',
+        href: '/mac',
+      },
+      {
+        name: 'Facebook-12',
+        href: '/facebook',
+      },
+      {
+        name: 'Task 2.1-13',
+        href: '/task21',
+      },
+      {
+        name: 'Task 2.2-14',
+        href: '/task22',
+      },
+      {
+        name: 'Task 3.1-15',
+        href: '/task31',
+      },
+      {
+        name: 'Shophome-16',
+        href: '/shophome',
+      },
+      {
+        name: 'ShopOrder-17',
+        href: '/shoporder',
+      },
+      {
+        name: 'ShopCart-18',
+        href: '/shopcart',
+      },
+      {
+        name: 'ShopProfile-19',
+        href: '/shopprofile',
+      },
+      {
+        name: 'ShopReview-20',
+        href: '/shopreview',
+      },
+      {
+        name: 'ShopCatalog-21',
+        href: '/shopcatalog',
+      },
+    ],
+  })
   //                  ↑↑ сюди вводимо JSON дані
 })
 

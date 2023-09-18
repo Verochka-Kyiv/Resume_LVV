@@ -1,12 +1,12 @@
-<div>
-    titles = "BIO",
+<div class="m-4">
+
     <h1>{{name}}</h1>
     <div>
         (<data>{{birthdate}} - {{deathdate}}</data>)
-        <p><b>Birthplace:</b>{{birthplace}}</p>
-        <p><b>Deathplace:</b>{{deathplace}}</p>
-        <p><b>Nationality:</b>{{nationality}}</p>
-        <p><b>Occupation:</b>{{occupation}}</p>
+        <p><b>Birthplace: </b>{{birthplace}}</p>
+        <p><b>Deathplace: </b>{{deathplace}}</p>
+        <p><b>Nationality: </b>{{nationality}}</p>
+        <p><b>Occupation: </b>{{occupation}}</p>
     </div>
     <em>Known for:<br>
         {{#each known_for}}
@@ -15,10 +15,10 @@
     </em>
     <p><b><u>Education:</u></b>
         {{#each education}}<br>
-        <b>Degree:</b> {{degree}}<br>
-        <b>Field:</b> {{field}}<br>
-        <b>Institution:</b> {{institution}}
-        <b>Year:</b> {{year}}
+        <b>Degree: </b> {{degree}}<br>
+        <b>Field: </b> {{field}}<br>
+        <b>Institution: </b> {{institution}}
+        <b>Year: </b> {{year}}
         <hr>
         {{/each}}
     </p>
@@ -26,7 +26,7 @@
         <p><b> <u>Notable Publications:</u></b></p>
         <ol type="1">
             {{#each notable_publications}}
-            <li> {{title}} ({{year}}). <br /> <i>Publisher:</i> {{publisher}}</li>
+            <li> {{title}} ({{year}}). <br /> <i>Publisher: </i> {{publisher}}</li>
             {{/each}}
         </ol>
         <hr>
@@ -35,7 +35,7 @@
         <p><b><u>Partners:</u></b>
         <ul>
             {{#each partners}}
-            <li> <i>{{name}}:</i> {{relationship}} ({{years}}). <br /> </li>
+            <li> <i>{{name}}: </i> {{relationship}} ({{years}}). <br /> </li>
             {{/each}}
         </ul>
         <hr>
@@ -44,7 +44,7 @@
         <p><b><u>Awards:</u></b>
         <ul>
             {{#each awards}}
-            <li> <i>{{title}} ({{year}}):</i> {{description}}. <br /> </li>
+            <li> <i>{{title}} ({{year}}): </i> {{description}}. <br /> </li>
             {{/each}}
         </ul>
         <hr>
